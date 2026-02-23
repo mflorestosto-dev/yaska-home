@@ -1,10 +1,10 @@
-import { ImagePlaceholder } from "@/components/image-placeholder"
+import Image from "next/image"
 
 interface ServiceSectionProps {
   title: string
   description: string
   items: string[]
-  imageLabel: string
+  imageSrc: string
   reversed?: boolean
   bgClass?: string
 }
@@ -13,46 +13,47 @@ function ServiceSection({
   title,
   description,
   items,
-  imageLabel,
+  imageSrc,
   reversed = false,
-  bgClass = "bg-background",
+  bgClass = "bg-white",
 }: ServiceSectionProps) {
   return (
-    <div className={`${bgClass} py-12 md:py-16`}>
-      <div className="mx-auto max-w-7xl px-6">
+    <div className={`${bgClass} py-16 md:py-24`}>
+      <div className="mx-auto max-w-6xl px-6">
         <div
-          className={`flex flex-col gap-8 items-center ${
-            reversed ? "md:flex-row-reverse" : "md:flex-row"
-          }`}
+          className={`flex flex-col gap-12 items-center justify-between ${reversed ? "md:flex-row-reverse" : "md:flex-row"
+            }`}
         >
           {/* Text content */}
-          <div className="flex-1 max-w-lg">
-            <h3 className="text-xl md:text-2xl font-bold text-foreground">
+          <div className="flex-1 max-w-xl">
+            <h3 className="text-xl md:text-[28px] font-bold text-black mb-4 leading-snug">
               {title}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/80">
+            <p className="text-[14px] md:text-[15px] leading-relaxed text-gray-800 mb-6 font-medium">
               {description}
             </p>
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-2 ml-5 list-disc marker:text-black">
               {items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2 text-sm text-foreground/80"
+                  className="text-[14px] md:text-[15px] text-gray-800 font-medium pl-1"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Image placeholder */}
-          <div className="flex-1 flex justify-center">
-            <ImagePlaceholder
-              label={imageLabel}
-              className="w-full max-w-sm h-56 md:h-72"
-              aspectRatio=""
-            />
+          {/* Image */}
+          <div className="flex-1 flex justify-center items-center w-full">
+            <div className="relative w-full max-w-[400px] h-[300px] md:h-[400px]">
+              <Image
+                src={imageSrc}
+                alt={title}
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -62,57 +63,57 @@ function ServiceSection({
 
 const services: ServiceSectionProps[] = [
   {
-    title: "Gestion de redes sociales:",
+    title: "Gestión de redes sociales:",
     description:
-      "Creamos y gestionamos el contenido de tu marca con estrategia y planificacion. Nos ocupamos de la comunicacion diaria y la interaccion con tu comunidad para que tu presencia digital sea profesional, coherente y efectiva.",
+      "Creamos y gestionamos el contenido de tu marca con estrategia y planificación. Nos ocupamos de la comunicación diaria y la interacción con tu comunidad para que tu presencia digital sea profesional, coherente y efectiva.",
     items: [
       "Community Management",
       "Estrategia de contenido",
-      "Creacion y planificacion de publicaciones",
-      "Interaccion con la comunidad",
+      "Creación y planificación de publicaciones",
+      "Interacción con la comunidad",
     ],
-    imageLabel: "Ilustracion celular YASKA",
+    imageSrc: "/Home/resources/telefonoyaska.png",
     reversed: false,
-    bgClass: "bg-background",
+    bgClass: "bg-white",
   },
   {
-    title: "Diseno & creacion de branding",
+    title: "Diseño & creación de branding",
     description:
-      "Construimos la identidad visual de tu marca y disenamos un feed estetico y alineado a tu esencia. Creamos piezas graficas estrategicas para que tu comunicacion se vea profesional, coherente y memorable.",
+      "Construimos la identidad visual de tu marca y diseñamos un feed estético y alineado a tu esencia. Creamos piezas gráficas estratégicas para que tu comunicación se vea profesional, coherente y memorable.",
     items: [
-      "Diseno de identidad visual",
-      "Feed estetico y alineado a la marca",
-      "Diseno de piezas graficas para redes",
+      "Diseño de identidad visual",
+      "Feed estético y alineado a la marca",
+      "Diseño de piezas gráficas para redes",
     ],
-    imageLabel: "Ilustracion paletas de colores",
+    imageSrc: "/Home/resources/colores.png",
     reversed: true,
-    bgClass: "bg-muted",
+    bgClass: "bg-[#F9E0E3]",
   },
   {
     title: "Contenido Multimedial",
     description:
-      "Producimos y editamos contenido visual para que tu marca se destaque. Videos cortos, fotografia y retoque digital pensados para captar atencion, generar conexion y aportar valor a tu comunicacion.",
+      "Producimos y editamos contenido visual para que tu marca se destaque. Videos cortos, fotografía y retoque digital pensados para captar atención, generar conexión y aportar valor a tu comunicación.",
     items: [
-      "Creacion de contenido",
-      "Edicion de videos cortos para reels y TikTok",
-      "Fotografia y retoque digital",
+      "Creación de contenido",
+      "Edición de videos cortos para reels y TikTok",
+      "Fotografía y retoque digital",
     ],
-    imageLabel: "Ilustracion camara SONY",
+    imageSrc: "/Services/resources/camarayaska.png",
     reversed: false,
-    bgClass: "bg-background",
+    bgClass: "bg-white",
   },
   {
-    title: "Consultoria y asesoramiento",
+    title: "Consultoría y asesoramiento",
     description:
-      "Evaluamos y optimizamos tus redes para que comuniques mejor y con estrategia. Incluye auditoria, optimizacion de perfiles y capacitacion para que puedas gestionar tu marca de manera profesional y efectiva.",
+      "Evaluamos y optimizamos tus redes para que comuniques mejor y con estrategia. Incluye auditoría, optimización de perfiles y capacitación para que puedas gestionar tu marca de manera profesional y efectiva.",
     items: [
-      "Auditoria de redes sociales",
-      "Optimizacion de perfiles",
-      "Capacitacion para manejo de redes",
+      "Auditoría de redes sociales",
+      "Optimización de perfiles",
+      "Capacitación para manejo de redes",
     ],
-    imageLabel: "Ilustracion personajes consultoria",
+    imageSrc: "/Services/resources/1yaska.png",
     reversed: true,
-    bgClass: "bg-secondary",
+    bgClass: "bg-[#F9E0E3]",
   },
 ]
 

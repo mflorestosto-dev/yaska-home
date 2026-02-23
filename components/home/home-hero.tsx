@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { CheckeredStripe } from "@/components/checkered-stripe"
 import { ImagePlaceholder } from "@/components/image-placeholder"
@@ -6,7 +7,15 @@ export function HomeHero() {
   return (
     <section>
       {/* Hero Banner */}
-      <div className="pink-stripes relative overflow-hidden">
+      <div className="relative overflow-hidden">
+        <Image
+          src="/Home/resources/fondohero.jpg"
+          alt="Hero background"
+          fill
+          priority
+          unoptimized
+          className="object-cover -z-10"
+        />
         <div className="mx-auto max-w-7xl px-6 py-12 md:py-20">
           <div className="flex flex-col md:flex-row items-center gap-8">
             

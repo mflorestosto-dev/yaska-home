@@ -55,14 +55,3 @@
   background-image: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
   background-size: 24px 24px;
 }
-
-/* Pink stripes pattern */
-.pink-stripes {
-  background: repeating-linear-gradient(
-    90deg,
-    #fde8f0 0px,
-    #fde8f0 18px,
-    #f9c6d9 18px,
-    #f9c6d9 36px
-  );
-}
