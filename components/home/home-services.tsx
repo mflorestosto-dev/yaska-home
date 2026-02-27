@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { YaskaButton } from "@/components/ui/yaska-button"
 import Image from "next/image"
 
 const services = [
@@ -55,12 +55,9 @@ export function HomeServices() {
         </div>
 
         <div className="mt-16">
-          <Link
-            href="/servicios"
-            className="inline-block rounded-full border-2 border-black bg-[#f9c6d9] px-12 py-3 text-sm font-bold text-black uppercase tracking-tight hover:bg-[#f7a8c4] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
-          >
+          <YaskaButton href="/servicios">
             VER TODO
-          </Link>
+          </YaskaButton>
         </div>
       </div>
     </section>

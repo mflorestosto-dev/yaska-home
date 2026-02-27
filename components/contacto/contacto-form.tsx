@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { YaskaButton } from "@/components/ui/yaska-button"
 
 export function ContactoForm() {
   const [formData, setFormData] = useState({
@@ -143,12 +144,9 @@ export function ContactoForm() {
 
               {/* Submit Button */}
               <div className="pt-2">
-                <button
-                  type="submit"
-                  className="inline-block rounded-[30px] border-2 border-black bg-[#FFA8E2] px-10 py-3 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:translate-y-[-2px] hover:shadow-[0_4px_0_0_#000000] shadow-[0_2px_0_0_#000000]"
-                >
+                <YaskaButton type="submit">
                   ENVIAR
-                </button>
+                </YaskaButton>
               </div>
             </form>
           </div>
