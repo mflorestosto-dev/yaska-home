@@ -8,7 +8,7 @@ export function AboutYazmin() {
         {/* COLUMNA IZQUIERDA: Texto y Bio */}
         <div className="relative flex flex-col justify-center items-center p-4 py-8 md:p-8 lg:p-12 text-foreground w-full md:h-full order-2 md:order-1">
 
-          <div className="w-[95%] md:w-[90%] xl:w-[85%] max-w-[500px] mx-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] border-2 border-black bg-[#f9c6d9] px-6 md:px-10 py-10 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-center">
+          <div className="w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] border-2 border-black bg-[#f9c6d9] px-6 md:px-10 py-10 rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-center">
             {/* Título en Magenta */}
             <h2 className="w-fit bg-white/50 border border-[#c026d3] rounded-lg px-3 py-1 text-xl md:text-2xl font-bold text-[#c026d3] uppercase tracking-wide mb-6">
               YAZMIN MARTINEZ
@@ -68,7 +68,7 @@ export function AboutYazmin() {
 
         {/* COLUMNA DERECHA: Foto Principal */}
         <div className="relative flex items-center justify-center p-4 py-8 md:p-8 lg:p-12 w-full h-full order-1 md:order-2">
-          <div className="relative w-[95%] md:w-[90%] xl:w-[85%] max-w-[500px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9]">
+          <div className="relative w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9]">
             <Image
               src="/About-us/images/Yaska-27.jpg"
               alt="Yazmin Martinez sentada"

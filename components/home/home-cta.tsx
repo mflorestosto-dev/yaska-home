@@ -51,7 +51,7 @@ export function HomeCTA() {
             </div>
 
             {/* Lips Illustration */}
-            <div className="relative w-64 h-48 md:w-[400px] md:h-72 self-center md:self-end">
+            <div className="absolute right-0 bottom-[-40px] md:relative md:right-auto md:bottom-auto w-32 h-24 sm:w-48 sm:h-36 md:w-[400px] md:h-72 self-end pointer-events-none opacity-80 md:opacity-100 flex-shrink-0">
               <Image
                 src="/Home/resources/telefono bocayaska.png"
                 alt="Ilustración labios"
