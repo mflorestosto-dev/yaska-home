@@ -18,7 +18,10 @@ export function HomeHero() {
 
         {/* BOTÓN COLABOREMOS Y NEO-BRUTALISTA */}
         <div className="absolute bottom-[8%] sm:bottom-[10%] md:bottom-[15%] w-full flex justify-center z-10">
-          <YaskaButton href="/contacto">
+          <YaskaButton
+            href="/contacto"
+            className="text-[10px] sm:text-xs md:text-lg px-4 py-2 sm:px-6 sm:py-3 md:px-10 md:py-4"
+          >
             !COLABOREMOS!
           </YaskaButton>
         </div>

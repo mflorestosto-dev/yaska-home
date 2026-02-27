@@ -4,7 +4,7 @@ import { CheckeredStripe } from "@/components/checkered-stripe"
 
 export function HomeAbout() {
   return (
-    <section className="relative overflow-hidden w-full bg-cover bg-center border-t-[12px] border-[#8b5cf6]" style={{ backgroundImage: 'url("/About-us/images/blancoyaska.jpg")' }}>
+    <section className="relative overflow-hidden w-full bg-cover bg-center" style={{ backgroundImage: 'url("/About-us/images/blancoyaska.jpg")' }}>
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[auto] md:min-h-[400px] lg:min-h-[600px] py-8 lg:py-0">
 
