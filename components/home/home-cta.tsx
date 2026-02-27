@@ -37,8 +37,8 @@ export function HomeCTA() {
           </div>
 
           {/* Text + CTA and Lips */}
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="mb-12">
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left relative w-full h-full pb-16 md:pb-0">
+            <div className="mb-8 md:mb-12 relative z-20">
               <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 uppercase leading-none">
                 ¿Trabajamos juntos?
               </h2>
@@ -51,7 +51,7 @@ export function HomeCTA() {
             </div>
 
             {/* Lips Illustration */}
-            <div className="absolute right-0 bottom-[-40px] md:relative md:right-auto md:bottom-auto w-32 h-24 sm:w-48 sm:h-36 md:w-[400px] md:h-72 self-end pointer-events-none opacity-80 md:opacity-100 flex-shrink-0">
+            <div className="absolute right-0 bottom-[-20px] md:relative md:right-auto md:bottom-auto w-32 h-24 sm:w-48 sm:h-36 md:w-[400px] md:h-72 self-end pointer-events-none opacity-80 md:opacity-100 flex-shrink-0 z-10">
               <Image
                 src="/Home/resources/telefono bocayaska.png"
                 alt="Ilustración labios"
