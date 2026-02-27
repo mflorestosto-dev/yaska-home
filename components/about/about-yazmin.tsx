@@ -68,14 +68,14 @@ export function AboutYazmin() {
 
         {/* COLUMNA DERECHA: Foto Principal */}
         <div className="relative flex items-center justify-center p-4 py-8 md:p-8 lg:p-12 w-full h-full order-1 md:order-2">
-          <div className="relative w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9]">
+          <div className="relative w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9] bg-[#f0e8ea]">
             <Image
               src="/About-us/images/Yaska-27.jpg"
               alt="Yazmin Martinez sentada"
               fill
               priority
-              className="object-cover object-center"
-            // object-contain evita que se recorte si la foto tiene fondo blanco integrado
+              className="object-cover"
+              style={{ objectPosition: 'center 40%' }}
             />
           </div>
         </div>
