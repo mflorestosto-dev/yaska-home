@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
-import logo from "../public/resources/white_logotype.png"
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -23,11 +22,11 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <Image 
-            src={logo}
-            alt="YASKA" 
-            width={160} 
-            height={60} 
+          <Image
+            src={"https://res.cloudinary.com/dw04wgk6k/image/upload/v1773784036/white_logotype_p0qd0b.png"}
+            alt="YASKA"
+            width={160}
+            height={60}
             className="h-10 w-auto object-contain"
             priority
           />
@@ -39,11 +38,10 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href
+                className={`text-sm font-medium transition-colors hover:text-primary ${pathname === link.href
                     ? "text-primary underline underline-offset-4 decoration-2"
                     : "text-white"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -70,11 +68,10 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-sm font-medium transition-colors hover:text-primary ${
-                    pathname === link.href
+                  className={`block text-sm font-medium transition-colors hover:text-primary ${pathname === link.href
                       ? "text-primary underline underline-offset-4 decoration-2"
                       : "text-white"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

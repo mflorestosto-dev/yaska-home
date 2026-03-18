@@ -1,6 +1,5 @@
 import { Mail, Phone } from "lucide-react"
 import Image from "next/image"
-import logo from "../public/resources/white_logotype.png"
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -40,8 +39,8 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
         <div className="flex items-center gap-6">
           <div className="relative w-32 h-12">
-            <Image 
-              src={logo}
+            <Image
+              src={"https://res.cloudinary.com/dw04wgk6k/image/upload/v1773784036/white_logotype_p0qd0b.png"}
               alt="YASKA Logo"
               fill
               className="object-contain"

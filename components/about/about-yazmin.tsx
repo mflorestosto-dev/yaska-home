@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function AboutYazmin() {
   return (
-    <section className="w-full bg-cover bg-center" style={{ backgroundImage: 'url("/About-us/images/blancoyaska.jpg")' }}>
+    <section className="w-full bg-cover bg-center" style={{ backgroundImage: 'url("https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782106/blancoyaska_g5gd7h.jpg")' }}>
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-[auto] md:min-h-[400px] lg:min-h-[600px]">
 
         {/* COLUMNA IZQUIERDA: Texto y Bio */}
@@ -56,7 +56,7 @@ export function AboutYazmin() {
               <div className="absolute -bottom-2 -left-4 w-16 h-16 bg-pink-300 -rotate-12 -z-10 clip-path-polygon" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)' }}></div>
 
               <Image
-                src="/About-us/resources/yazyaska.png"
+                src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782130/yazyaska_eivypz.png"
                 alt="Ilustración Yazmin"
                 width={70}
                 height={70}
@@ -70,7 +70,7 @@ export function AboutYazmin() {
         <div className="relative flex items-center justify-center p-4 py-8 md:p-8 lg:p-12 w-full h-full order-1 md:order-2">
           <div className="relative w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9] bg-[#f0e8ea]">
             <Image
-              src="/About-us/images/Yaska-27.jpg"
+              src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782106/Yaska-27_g9a3gi.jpg"
               alt="Yazmin Martinez sentada"
               fill
               priority

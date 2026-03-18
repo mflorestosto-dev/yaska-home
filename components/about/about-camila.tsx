@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function AboutCamila() {
   return (
-    <section className="w-full bg-cover bg-center" style={{ backgroundImage: 'url("/About-us/images/blancoyaska.jpg")' }}>
+    <section className="w-full bg-cover bg-center" style={{ backgroundImage: 'url("https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782106/blancoyaska_g5gd7h.jpg")' }}>
       {/* Grid de 2 columnas: Foto Izquierda | Texto Derecha */}
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-[auto] md:min-h-[400px] lg:min-h-[600px]">
 
@@ -10,7 +10,7 @@ export function AboutCamila() {
         <div className="relative flex items-center justify-center p-4 py-8 md:p-8 lg:p-12 w-full h-full">
           <div className="relative w-[95%] md:w-[90%] xl:w-[95%] max-w-[500px] lg:max-w-[750px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9]">
             <Image
-              src="/About-us/images/Yaska-39.jpg"
+              src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782107/Yaska-39_thjmxo.jpg"
               alt="Camila Vicente"
               fill
               priority
@@ -62,7 +62,7 @@ export function AboutCamila() {
                 ></div>
 
                 <Image
-                  src="/About-us/resources/camiyaska.png"
+                  src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782128/camiyaska_nwcisb.png"
                   alt="Ilustración Camila"
                   width={80} // Un poco más grande para destacar
                   height={80}

@@ -32,7 +32,7 @@ export function ContactoForm() {
       {/* Full background illustration */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <Image
-          src="/Contact/resources/fondo rosa2w.jpg"
+          src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782779/fondo_rosa2w_jdghod.jpg"
           alt="Patron decorativo YASKA"
           fill
           className="object-cover object-center"

@@ -8,7 +8,7 @@ export function HomeHero() {
       {/* IMAGEN HERO COMPLETA Y RESPONSIVA */}
       <div className="relative w-full flex flex-col items-center">
         <Image
-          src="/Home/images/Yaska-hero.jpg"
+          src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782988/Yaska-hero_ndralz.jpg"
           alt="Yaska Agencia Creativa Hero"
           width={1920}
           height={1080}

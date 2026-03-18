@@ -4,7 +4,7 @@ import { CheckeredStripe } from "@/components/checkered-stripe"
 
 export function HomeAbout() {
   return (
-    <section className="relative overflow-hidden w-full bg-cover bg-center" style={{ backgroundImage: 'url("/About-us/images/blancoyaska.jpg")' }}>
+    <section className="relative overflow-hidden w-full bg-cover bg-center" style={{ backgroundImage: 'url("https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782106/blancoyaska_g5gd7h.jpg")' }}>
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[auto] md:min-h-[400px] lg:min-h-[600px] py-8 lg:py-0">
 
@@ -32,7 +32,7 @@ export function HomeAbout() {
               <div className="relative mt-8 md:mt-auto pt-4 md:pt-6 flex justify-end">
                 <div className="relative w-48 h-32 md:w-56 md:h-40 mr-[-20px] md:mr-[-40px]">
                   <Image
-                    src="/Home/resources/C&Yyaska.png"
+                    src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783045/C_Yyaska_t09e4y.png"
                     alt="Ilustracion personajes Camila y Yazmin"
                     fill
                     className="object-contain object-right-bottom relative z-10"
@@ -46,7 +46,7 @@ export function HomeAbout() {
           <div className="relative flex items-center justify-center p-4 py-8 md:p-8 lg:p-12 w-full h-full order-1 md:order-2">
             <div className="relative w-[95%] md:w-[90%] xl:w-[85%] max-w-[500px] mx-auto aspect-[4/5] md:aspect-auto h-auto md:h-full min-h-[350px] md:min-h-[500px] rounded-3xl overflow-hidden border-[6px] border-[#f9c6d9]">
               <Image
-                src="/Home/images/Yaska-12.jpg"
+                src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782989/Yaska-12_s2cxd8.jpg"
                 alt="Foto Camila y Yazmin"
                 fill
                 priority

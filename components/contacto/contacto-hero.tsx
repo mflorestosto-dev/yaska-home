@@ -6,7 +6,7 @@ export function ContactoHero() {
       {/* IMAGEN HERO COMPLETA Y RESPONSIVA */}
       <div className="w-full">
         <Image
-          src="/Contact/images/Contact-hero.jpg"
+          src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773782766/Contact-hero_z1hr4f.jpg"
           alt="Contacto Hero YASKA"
           width={1920}
           height={1080}

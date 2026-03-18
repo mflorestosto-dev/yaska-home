@@ -6,7 +6,7 @@ export function HomeCTA() {
     <section className="relative min-h-[600px] md:min-h-[700px] overflow-hidden flex items-center py-16 md:py-24">
       {/* Background Image */}
       <Image
-        src="/Home/resources/negroyaska.jpg"
+        src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783135/negroyaska_olieeo.jpg"
         alt="Background"
         fill
         className="object-cover"
@@ -16,7 +16,7 @@ export function HomeCTA() {
       {/* Absolute Phone in Corner */}
       <div className="absolute -left-10 -bottom-20 w-64 h-96 md:w-[450px] md:h-[600px] z-10 rotate-[-5deg]">
         <Image
-          src="/Home/resources/telefonoyaska.png"
+          src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783131/telefonoyaska_sk8fxl.png"
           alt="Celular YASKA"
           fill
           className="object-contain"
@@ -29,7 +29,7 @@ export function HomeCTA() {
           {/* Characters */}
           <div className="relative w-64 h-80 md:w-[400px] md:h-[500px] md:ml-32 mt-12 md:mt-0">
             <Image
-              src="/Home/resources/C&YFooter.png"
+              src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783048/C_YFooter_t8e8wl.png"
               alt="Personajes Camila y Yazmin"
               fill
               className="object-contain"
@@ -53,7 +53,7 @@ export function HomeCTA() {
             {/* Lips Illustration */}
             <div className="absolute right-0 bottom-[-20px] md:relative md:right-auto md:bottom-auto w-32 h-24 sm:w-48 sm:h-36 md:w-[400px] md:h-72 self-end pointer-events-none opacity-80 md:opacity-100 flex-shrink-0 z-10">
               <Image
-                src="/Home/resources/telefono bocayaska.png"
+                src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783130/telefono_bocayaska_mtqsnx.png"
                 alt="Ilustración labios"
                 fill
                 className="object-contain"

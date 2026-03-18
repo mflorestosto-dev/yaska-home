@@ -7,7 +7,7 @@ export function ServiciosHero() {
       {/* IMAGEN HERO COMPLETA Y RESPONSIVA */}
       <div className="w-full">
         <Image
-          src="/Services/images/Yaska-services.jpg"
+          src="https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783655/Yaska-services_bhmjzn.jpg"
           alt="Servicios Hero Background"
           width={1920}
           height={1080}

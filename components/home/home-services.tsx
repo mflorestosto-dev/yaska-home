@@ -4,19 +4,19 @@ import Image from "next/image"
 const services = [
   {
     title: "GESTIÓN DE REDES SOCIALES",
-    image: "/Home/resources/libroyaska.png",
+    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783128/libroyaska_rx353m.png",
   },
   {
     title: "DISEÑO Y BRANDING",
-    image: "/Home/resources/colores.png", // Dejado preparado para cuando subas la imagen
+    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783049/colores_zrmzlm.png", // Dejado preparado para cuando subas la imagen
   },
   {
     title: "CONTENIDO MULTIMEDIA",
-    image: "/Home/resources/tvyaska.png",
+    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783133/tvyaska_idchza.png",
   },
   {
     title: "CONSULTORÍA Y ASESORAMIENTO",
-    image: "/Home/resources/telefonoyaska.png",
+    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783131/telefonoyaska_sk8fxl.png",
   },
 ]
 

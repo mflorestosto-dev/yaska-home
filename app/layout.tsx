@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${poppins.variable} ${bebasNeue.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="es" className={`${poppins.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>
         <Footer />
