@@ -1,5 +1,8 @@
+"use client"
+
 import { YaskaButton } from "@/components/ui/yaska-button"
 import Image from "next/image"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const services = [
   {
@@ -8,7 +11,7 @@ const services = [
   },
   {
     title: "DISEÑO Y BRANDING",
-    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783049/colores_zrmzlm.png", // Dejado preparado para cuando subas la imagen
+    image: "https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783049/colores_zrmzlm.png",
   },
   {
     title: "CONTENIDO MULTIMEDIA",
@@ -24,41 +27,46 @@ export function HomeServices() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 text-center">
-        <h2 className="font-sans text-4xl md:text-5xl font-bold text-black mb-6">
-          Nuestros servicios
-        </h2>
-        <p className="mx-auto max-w-3xl text-base md:text-lg leading-snug text-black mb-12">
-          Acompañamos a las marcas en cada etapa de su crecimiento digital. Desde la estrategia hasta la ejecución, combinamos diseño, contenido y gestión para crear una presencia coherente, atractiva y con impacto real.
-        </p>
+        <ScrollReveal animation="fade-up">
+          <h2 className="font-sans text-4xl md:text-5xl font-bold text-black mb-6">
+            Nuestros servicios
+          </h2>
+          <p className="mx-auto max-w-3xl text-base md:text-lg leading-snug text-black mb-12">
+            Acompañamos a las marcas en cada etapa de su crecimiento digital. Desde la estrategia hasta la ejecución, combinamos diseño, contenido y gestión para crear una presencia coherente, atractiva y con impacto real.
+          </p>
+        </ScrollReveal>
 
-        {/* Service Cards */}
+        {/* Service Cards with stagger */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="flex flex-col items-center justify-between rounded-[32px] border-2 border-black bg-[#f9c6d9] p-8 min-h-[300px] transition-transform hover:-translate-y-1"
-            >
-              <div className="relative w-full aspect-square mb-6 flex items-center justify-center">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={160}
-                  height={160}
-                  className="object-contain"
-                />
+          {services.map((service, index) => (
+            <ScrollReveal key={service.title} animation="scale-in" delay={index * 120} className="h-full">
+              <div
+                className="flex flex-col items-center justify-between rounded-[32px] border-2 border-black bg-[#f9c6d9] p-8 h-full hover-lift cursor-default"
+              >
+                <div className="relative w-full aspect-square mb-6 flex items-center justify-center">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={160}
+                    height={160}
+                    className="object-contain"
+                  />
+                </div>
+                <p className="font-sans text-lg md:text-xl font-black text-black text-left w-full leading-[1.1]">
+                  {service.title}
+                </p>
               </div>
-              <p className="font-sans text-lg md:text-xl font-black text-black text-left w-full leading-[1.1]">
-                {service.title}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-16">
-          <YaskaButton href="/servicios">
-            VER TODO
-          </YaskaButton>
-        </div>
+        <ScrollReveal animation="fade-up" delay={500}>
+          <div className="mt-16">
+            <YaskaButton href="/servicios">
+              VER TODO
+            </YaskaButton>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

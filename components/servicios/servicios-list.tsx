@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface ServiceSectionProps {
   title: string
@@ -25,7 +28,7 @@ function ServiceSection({
             }`}
         >
           {/* Text content */}
-          <div className="flex-1 max-w-xl">
+          <ScrollReveal animation={reversed ? "slide-right" : "slide-left"} className="flex-1 max-w-xl">
             <h3 className="text-xl md:text-[28px] font-bold text-black mb-4 leading-snug">
               {title}
             </h3>
@@ -42,10 +45,10 @@ function ServiceSection({
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Image */}
-          <div className="flex-1 flex justify-center items-center w-full">
+          <ScrollReveal animation={reversed ? "slide-left" : "slide-right"} className="flex-1 flex justify-center items-center w-full">
             <div className="relative w-full max-w-[400px] h-[300px] md:h-[400px]">
               <Image
                 src={imageSrc}
@@ -54,7 +57,7 @@ function ServiceSection({
                 className="object-contain"
               />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>

@@ -2,29 +2,34 @@
 
 import { useRef, useState } from "react"
 import { Play, Pause } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function ServiciosProcesoCreativo() {
     return (
         <section className="relative w-full py-16 md:py-24 bg-cover bg-center" style={{ backgroundImage: 'url("https://res.cloudinary.com/dw04wgk6k/image/upload/v1773783135/negroyaska_olieeo.jpg")' }}>
             <div className="mx-auto max-w-6xl px-4 md:px-6 flex flex-col items-center">
                 {/* Texts */}
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white text-center mb-4 uppercase tracking-wide">
-                    Proceso Creativo
-                </h2>
-                <p className="text-white/90 text-center max-w-2xl text-[14px] md:text-[15px] mb-10 md:mb-14 font-medium leading-relaxed">
-                    Te mostramos el detrás de escena de cómo trabajamos con nuestras marcas: ideas
-                    en proceso, días de producción y momentos reales de creación.
-                </p>
+                <ScrollReveal animation="fade-up">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white text-center mb-4 uppercase tracking-wide">
+                        Proceso Creativo
+                    </h2>
+                    <p className="text-white/90 text-center max-w-2xl text-[14px] md:text-[15px] mb-10 md:mb-14 font-medium leading-relaxed">
+                        Te mostramos el detrás de escena de cómo trabajamos con nuestras marcas: ideas
+                        en proceso, días de producción y momentos reales de creación.
+                    </p>
+                </ScrollReveal>
 
                 {/* Video Box */}
-                <div className="w-full bg-[#F9E0E3] rounded-[2rem] p-4 md:p-8 shadow-xl">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                        <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783684/video1_rjtoyh.mp4" />
-                        <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783683/video2_ifciux.mp4" />
-                        <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783681/video4_oht3dg.mp4" />
-                        <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783679/video3_ne12xl.mp4" />
+                <ScrollReveal animation="scale-in" delay={200}>
+                    <div className="w-full bg-[#F9E0E3] rounded-[2rem] p-4 md:p-8 shadow-xl">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                            <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783684/video1_rjtoyh.mp4" />
+                            <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783683/video2_ifciux.mp4" />
+                            <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783681/video4_oht3dg.mp4" />
+                            <VideoCard src="https://res.cloudinary.com/dw04wgk6k/video/upload/v1773783679/video3_ne12xl.mp4" />
+                        </div>
                     </div>
-                </div>
+                </ScrollReveal>
             </div>
         </section>
     )
