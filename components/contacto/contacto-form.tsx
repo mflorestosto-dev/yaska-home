@@ -1,75 +1,59 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import { YaskaButton } from "@/components/ui/yaska-button"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-// Web3Forms: Obtené tu access key gratis en https://web3forms.com (se envía a tu email)
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "TU_ACCESS_KEY_AQUI"
-
 type FormStatus = "idle" | "submitting" | "success" | "error"
 
 export function ContactoForm() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    telefono: "",
-    mensaje: "",
-  })
   const [status, setStatus] = useState<FormStatus>("idle")
   const [errorMessage, setErrorMessage] = useState("")
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // Guardar una referencia fuerte al formulario antes de cualquier await
+    // ya que React nulifica e.currentTarget asíncronamente.
+    const formTarget = e.currentTarget
 
     setStatus("submitting")
     setErrorMessage("")
 
     try {
+      // 100% Official Web3Forms React Implementation
+      const formData = new FormData(formTarget)
+      // En Client Components de Next.js es vital usar NEXT_PUBLIC_
+      formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "")
+
+      // Configuración opcional sugerida por Web3Forms
+      formData.append("subject", "Nuevo mensaje de web YASKA")
+      formData.append("from_name", "YASKA Contacto")
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Nuevo mensaje de contacto de ${formData.nombre} ${formData.apellido}`,
-          from_name: "YASKA Web",
-          nombre: formData.nombre,
-          apellido: formData.apellido,
-          email: formData.email,
-          telefono: formData.telefono || "No proporcionado",
-          mensaje: formData.mensaje,
-        }),
+          "Accept": "application/json"
+        }
       })
 
-      const result = await response.json()
-
-      if (result.success) {
+      // Simplemente validar si la petición HTTP tuvo éxito sin tratar de parsear JSON estrictamente
+      // Esto evita que salte el catch si un adblocker o Web3Forms devuelve un formato alterado/HTML
+      if (response.ok) {
         setStatus("success")
-        setFormData({
-          nombre: "",
-          apellido: "",
-          email: "",
-          telefono: "",
-          mensaje: "",
-        })
+        formTarget.reset() // Limpia el formulario nativo usando la referencia guardada
+        // Auto-esconder mensaje a los 6 segundos
+        setTimeout(() => setStatus("idle"), 6000)
       } else {
         setStatus("error")
-        setErrorMessage(result.message || "Hubo un error al enviar el formulario. Intentá de nuevo.")
+        setErrorMessage("Error al conectar con el servidor.")
       }
-    } catch {
+    } catch (error) {
+      console.error("🔥🔥 ERROR REAL DEL FETCH DE WEB3FORMS:", error)
       setStatus("error")
-      setErrorMessage("Error de conexión. Verificá tu internet e intentá de nuevo.")
+      setErrorMessage("Bloqueo de red (Revisá la consola).")
     }
   }
 
@@ -93,133 +77,96 @@ export function ContactoForm() {
           {/* Left: Form */}
           <div className="flex-1 max-w-2xl w-full">
             <ScrollReveal animation="fade-up">
-            <h2 className="text-2xl md:text-3xl font-bold text-black leading-snug mb-8 max-w-[500px]">
-              Completá el formulario a continuación y nos
-              pondremos en contacto contigo lo antes posible.
-            </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-black leading-snug mb-8 max-w-[500px]">
+                Completá el formulario a continuación y nos
+                pondremos en contacto contigo lo antes posible.
+              </h2>
 
-            {/* Success Message */}
-            {status === "success" && (
-              <div className="mb-6 p-4 rounded-xl bg-green-50 border-2 border-green-200 text-green-800 font-medium text-sm">
-                ✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
-              </div>
-            )}
+              {/* Success Message */}
+              {status === "success" && (
+                <div className="mb-6 p-4 rounded-xl bg-green-50 border-2 border-green-200 text-green-800 font-medium text-sm">
+                  ✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+                </div>
+              )}
 
-            {/* Error Message */}
-            {(status === "error" || errorMessage) && status !== "success" && (
-              <div className="mb-6 p-4 rounded-xl bg-red-50 border-2 border-red-200 text-red-800 font-medium text-sm">
-                ❌ {errorMessage}
-              </div>
-            )}
+              {/* Error Message */}
+              {(status === "error" || errorMessage) && status !== "success" && (
+                <div className="mb-6 p-4 rounded-xl bg-red-50 border-2 border-red-200 text-red-800 font-medium text-sm">
+                  ❌ {errorMessage}
+                </div>
+              )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Form fields wrapper card */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 space-y-6 shadow-sm border border-white/50 relative z-20">
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="flex-1">
-                    <label
-                      htmlFor="nombre"
-                      className="block text-xs font-semibold text-gray-700 mb-2"
-                    >
-                      Nombre <span className="text-[#FFA8E2]">*</span>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Web3Forms honeypot anti-spam */}
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+                {/* Form fields wrapper card */}
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 space-y-6 shadow-sm border border-white/50 relative z-20">
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    <div className="flex-1">
+                      <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-2">
+                        Nombre completo <span className="text-[#FFA8E2]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className={inputClass}
+                        disabled={status === "submitting"}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-2">
+                      Correo Electrónico <span className="text-[#FFA8E2]">*</span>
                     </label>
                     <input
-                      type="text"
-                      id="nombre"
-                      name="nombre"
+                      type="email"
+                      id="email"
+                      name="email"
                       required
-                      value={formData.nombre}
-                      onChange={handleChange}
                       className={inputClass}
                       disabled={status === "submitting"}
                     />
                   </div>
-                  <div className="flex-1">
-                    <label
-                      htmlFor="apellido"
-                      className="block text-xs font-semibold text-gray-700 mb-2"
-                    >
-                      Apellido
+
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-semibold text-gray-700 mb-2">
+                      Teléfono
                     </label>
                     <input
-                      type="text"
-                      id="apellido"
-                      name="apellido"
-                      value={formData.apellido}
-                      onChange={handleChange}
+                      type="tel"
+                      id="phone"
+                      name="phone"
                       className={inputClass}
+                      disabled={status === "submitting"}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-xs font-semibold text-gray-700 mb-2">
+                      Mensaje de consulta <span className="text-[#FFA8E2]">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      className={`${inputClass} resize-vertical`}
                       disabled={status === "submitting"}
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-xs font-semibold text-gray-700 mb-2"
-                  >
-                    Correo Electrónico <span className="text-[#FFA8E2]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={inputClass}
-                    disabled={status === "submitting"}
-                  />
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <YaskaButton type="submit" disabled={status === "submitting"}>
+                    {status === "submitting" ? "ENVIANDO..." : "ENVIAR"}
+                  </YaskaButton>
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="telefono"
-                    className="block text-xs font-semibold text-gray-700 mb-2"
-                  >
-                    Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefono"
-                    name="telefono"
-                    value={formData.telefono}
-                    onChange={handleChange}
-                    className={inputClass}
-                    disabled={status === "submitting"}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="mensaje"
-                    className="block text-xs font-semibold text-gray-700 mb-2"
-                  >
-                    Mensaje de consulta <span className="text-[#FFA8E2]">*</span>
-                  </label>
-                  <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    required
-                    rows={5}
-                    value={formData.mensaje}
-                    onChange={handleChange}
-                    className={`${inputClass} resize-vertical`}
-                    disabled={status === "submitting"}
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-2">
-                <YaskaButton
-                  type="submit"
-                  disabled={status === "submitting"}
-                >
-                  {status === "submitting" ? "ENVIANDO..." : "ENVIAR"}
-                </YaskaButton>
-              </div>
-            </form>
+              </form>
             </ScrollReveal>
           </div>
 
