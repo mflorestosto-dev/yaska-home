@@ -33,12 +33,12 @@ export function ContactoForm() {
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
-        }
-      })
+        },
+        body: JSON.stringify(formData),
+      });
 
       // Simplemente validar si la petición HTTP tuvo éxito sin tratar de parsear JSON estrictamente
       // Esto evita que salte el catch si un adblocker o Web3Forms devuelve un formato alterado/HTML
