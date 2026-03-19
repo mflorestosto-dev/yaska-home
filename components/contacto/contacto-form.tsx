@@ -35,6 +35,7 @@ export function ContactoForm() {
         method: "POST",
         body: formData,
         headers: {
+          "Content-Type": "application/json",
           "Accept": "application/json"
         }
       })
