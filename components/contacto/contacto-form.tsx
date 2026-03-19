@@ -21,6 +21,15 @@ export function ContactoForm() {
     try {
       // 1. Extraemos los datos del formulario a un objeto plano
       const formDataInstance = new FormData(formTarget);
+      
+      // HONEYPOT TRAMPA PARA BOTS: si botcheck está marcado, fingimos éxito y cortamos
+      if (formDataInstance.get("botcheck")) {
+        setStatus("success");
+        formTarget.reset();
+        setTimeout(() => setStatus("idle"), 6000);
+        return; // Sale sin gastar requests HTTP!
+      }
+
       const data = Object.fromEntries(formDataInstance.entries());
 
       // 2. Agregamos la Access Key y configuraciones (Asegurate que empiece con NEXT_PUBLIC_)
