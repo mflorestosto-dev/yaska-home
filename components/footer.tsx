@@ -64,7 +64,7 @@ export function Footer() {
             <InstagramIcon className="h-6 w-6" />
           </a>
           <a
-            href="https://www.linkedin.com/company/yaska-agencia/"
+            href="https://www.linkedin.com/company/yaska-digital/about/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
